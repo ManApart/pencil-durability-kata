@@ -16,5 +16,18 @@ class PencilSharpeningTest {
         assertEquals("Emp  dura      ", paper.getText())
     }
 
+    @Test
+    fun pencilsCannotBeSharpenedIfTheyHave0Length() {
+        val pencil = Pencil(4, 0)
+        val paper = Paper()
+        pencil.write("Empty", paper)
+        assertEquals("Emp  ", paper.getText())
+
+        pencil.sharpen()
+
+        pencil.write("durability", paper)
+        assertEquals("Emp            ", paper.getText())
+    }
+
 
 }

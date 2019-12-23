@@ -1,8 +1,10 @@
-class Pencil(private val initialDurability: Int) {
+class Pencil(private val initialDurability: Int, private val length: Int = 1) {
     private var durability = initialDurability
 
     fun sharpen() {
-        durability = initialDurability
+        if (length > 0) {
+            durability = initialDurability
+        }
     }
 
     fun write(text: String, paper: Paper) {
