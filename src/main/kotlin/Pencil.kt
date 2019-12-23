@@ -30,5 +30,10 @@ class Pencil(private val initialDurability: Int, private var length: Int = 1) {
         }
     }
 
+    fun erase(text: String, paper: Paper) {
+        val index = paper.getText().lastIndexOf(text)
+        val whiteSpace = "".padEnd(text.length, ' ')
+        paper.replace(index, whiteSpace)
+    }
 
 }
