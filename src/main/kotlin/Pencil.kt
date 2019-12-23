@@ -1,9 +1,11 @@
-class Pencil(private val initialDurability: Int, private var length: Int = 1) {
+import kotlin.math.min
+
+class Pencil(private val initialDurability: Int, private var length: Int = 1, private var eraserDurability: Int = 1) {
     private var durability = initialDurability
 
     fun sharpen() {
         if (length > 0) {
-            length -= 1
+            length--
             durability = initialDurability
         }
     }
@@ -32,8 +34,12 @@ class Pencil(private val initialDurability: Int, private var length: Int = 1) {
 
     fun erase(text: String, paper: Paper) {
         val index = paper.getText().lastIndexOf(text)
-        val whiteSpace = "".padEnd(text.length, ' ')
-        paper.replace(index, whiteSpace)
+
+        val numCharsToErase = min(eraserDurability, text.length)
+        val numCharsNotErased = text.length-numCharsToErase
+        val newText = text.substring(0, numCharsNotErased).padEnd(text.length, ' ')
+
+        paper.replace(index, newText)
     }
 
 }
