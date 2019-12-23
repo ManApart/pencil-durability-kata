@@ -1,5 +1,12 @@
 class Paper {
-    fun getText(): String {
-        return "She sells sea shells"
+    private var text = ""
+    fun write(text: String) {
+        this.text = text
     }
+
+    fun getText(): String {
+        return text
+    }
+
+
 }

@@ -11,4 +11,12 @@ class WritingTest {
         assertEquals("She sells sea shells", paper.getText())
     }
 
+    @Test
+    fun writeADifferentString() {
+        val pencil = Pencil()
+        val paper = Paper()
+        pencil.write("She surely sells those surely sea shells", paper)
+        assertEquals("She surely sells those surely sea shells", paper.getText())
+    }
+
 }
