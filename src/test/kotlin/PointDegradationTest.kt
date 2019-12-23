@@ -28,4 +28,12 @@ class PointDegradationTest {
         assertEquals("she s    ", paper.getText())
     }
 
+    @Test
+    fun newLinesDoNotEffectDurability() {
+        val pencil = Pencil(4)
+        val paper = Paper()
+        pencil.write("she\n sells", paper)
+        assertEquals("she\n s    ", paper.getText())
+    }
+
 }
