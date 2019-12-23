@@ -21,4 +21,13 @@ class EraseTest {
         assertEquals("Buffalo B   ", paper.getText())
     }
 
+    @Test
+    fun eraserDegradesAsItIsUsed() {
+        val pencil = Pencil(1000, eraserDurability = 6)
+        val paper = Paper("BuffaloBill")
+        pencil.erase("Bill", paper)
+        pencil.erase("Buffalo", paper)
+        assertEquals("Buffa      ", paper.getText())
+    }
+
 }

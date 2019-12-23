@@ -36,7 +36,8 @@ class Pencil(private val initialDurability: Int, private var length: Int = 1, pr
         val index = paper.getText().lastIndexOf(text)
 
         val numCharsToErase = min(eraserDurability, text.length)
-        val numCharsNotErased = text.length-numCharsToErase
+        eraserDurability -= numCharsToErase
+        val numCharsNotErased = text.length - numCharsToErase
         val newText = text.substring(0, numCharsNotErased).padEnd(text.length, ' ')
 
         paper.replace(index, newText)
