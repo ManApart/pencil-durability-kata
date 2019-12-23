@@ -29,5 +29,19 @@ class PencilSharpeningTest {
         assertEquals("Emp            ", paper.getText())
     }
 
+    @Test
+    fun sharpeningDecreasesLength() {
+        val pencil = Pencil(4, 1)
+        val paper = Paper()
+
+        pencil.write("word", paper)
+        pencil.sharpen()
+        pencil.write("next", paper)
+        pencil.sharpen()
+        pencil.write("nope", paper)
+
+        assertEquals("wordnext    ", paper.getText())
+    }
+
 
 }
