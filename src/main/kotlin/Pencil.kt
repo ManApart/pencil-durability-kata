@@ -1,4 +1,9 @@
-class Pencil(private var durability: Int) {
+class Pencil(private val initialDurability: Int) {
+    private var durability = initialDurability
+
+    fun sharpen() {
+        durability = initialDurability
+    }
 
     fun write(text: String, paper: Paper) {
         val textToWrite = text.map { char ->
@@ -21,5 +26,6 @@ class Pencil(private var durability: Int) {
             else -> 1
         }
     }
+
 
 }
