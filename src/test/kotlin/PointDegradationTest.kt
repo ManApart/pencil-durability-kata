@@ -11,5 +11,13 @@ class PointDegradationTest {
         assertEquals("shes    ", paper.getText())
     }
 
+    @Test
+    fun durabilityDegradesWithUse() {
+        val pencil = Pencil(4)
+        val paper = Paper()
+        pencil.write("she", paper)
+        pencil.write("sells", paper)
+        assertEquals("shes    ", paper.getText())
+    }
 
 }
