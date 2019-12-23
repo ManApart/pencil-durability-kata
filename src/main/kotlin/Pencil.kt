@@ -35,10 +35,18 @@ class Pencil(private val initialDurability: Int, private var length: Int = 1, pr
     fun erase(text: String, paper: Paper) {
         val index = paper.getText().lastIndexOf(text)
 
-        val numCharsToErase = min(eraserDurability, text.length)
-        eraserDurability -= numCharsToErase
-        val numCharsNotErased = text.length - numCharsToErase
-        val newText = text.substring(0, numCharsNotErased).padEnd(text.length, ' ')
+        val newText = text.reversed().map { char ->
+            when {
+                char == '\n' -> char
+                char == ' ' -> char
+                eraserDurability > 0 -> {
+                    eraserDurability--
+                    ' '
+                }
+                else -> char
+
+            }
+        }.joinToString("").reversed()
 
         paper.replace(index, newText)
     }

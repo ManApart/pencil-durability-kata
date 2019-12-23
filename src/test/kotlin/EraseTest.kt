@@ -30,4 +30,12 @@ class EraseTest {
         assertEquals("Buffa      ", paper.getText())
     }
 
+    @Test
+    fun eraserDoesNotDegradeWhenErasingWhiteSpace() {
+        val pencil = Pencil(1000, eraserDurability = 5)
+        val paper = Paper("Buffalo Bill\n")
+        pencil.erase("Buffalo Bill\n", paper)
+        assertEquals("Buffal      \n", paper.getText())
+    }
+
 }
