@@ -11,7 +11,17 @@ class Pencil(private val initialDurability: Int, private var length: Int = 1, pr
     }
 
     fun write(text: String, paper: Paper) {
-        val textToWrite = text.map { char ->
+        val textToWrite = getTextToWrite(text)
+        paper.write(textToWrite)
+    }
+
+    fun write(text: String, start: Int, paper: Paper) {
+        val textToWrite = getTextToWrite(text)
+        paper.replace(start, textToWrite)
+    }
+
+    private fun getTextToWrite(text: String): String {
+        return text.map { char ->
             if (durability > 0) {
                 durability -= getCost(char)
                 char
@@ -19,8 +29,6 @@ class Pencil(private val initialDurability: Int, private var length: Int = 1, pr
                 ' '
             }
         }.joinToString("")
-
-        paper.write(textToWrite)
     }
 
     private fun getCost(character: Char): Int {
