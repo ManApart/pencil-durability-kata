@@ -11,6 +11,14 @@ class EditPaperTest {
         assertEquals("An onion a day keeps the doctor away", paper.getText())
     }
 
+    @Test
+    fun writeOverCharacters() {
+        val pencil = Pencil(1000)
+        val paper = Paper("An       a day keeps the doctor away")
+        pencil.write("artichoke", 3, paper)
+        assertEquals("An artich@k@ay keeps the doctor away", paper.getText())
+    }
+
 
 
 }
