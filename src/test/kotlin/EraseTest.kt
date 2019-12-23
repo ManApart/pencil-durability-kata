@@ -9,6 +9,8 @@ class EraseTest {
         val paper = Paper("How much wood would a woodchuck chuck if a woodchuck could chuck wood?")
         pencil.erase("chuck", paper)
         assertEquals("How much wood would a woodchuck chuck if a woodchuck could       wood?", paper.getText())
+        pencil.erase("chuck", paper)
+        assertEquals("How much wood would a woodchuck chuck if a wood      could       wood?", paper.getText())
     }
 
 }
