@@ -5,7 +5,7 @@ class WritingTest {
 
     @Test
     fun writeHardCodedString() {
-        val pencil = Pencil()
+        val pencil = Pencil(1000)
         val paper = Paper()
         pencil.write("She sells sea shells", paper)
         assertEquals("She sells sea shells", paper.getText())
@@ -13,7 +13,7 @@ class WritingTest {
 
     @Test
     fun writeADifferentString() {
-        val pencil = Pencil()
+        val pencil = Pencil(1000)
         val paper = Paper()
         pencil.write("She surely sells those surely sea shells", paper)
         assertEquals("She surely sells those surely sea shells", paper.getText())
@@ -21,7 +21,7 @@ class WritingTest {
 
     @Test
     fun appendText() {
-        val pencil = Pencil()
+        val pencil = Pencil(1000)
         val paper = Paper()
         pencil.write("She sells sea shells", paper)
         pencil.write(" by the sea shore", paper)
