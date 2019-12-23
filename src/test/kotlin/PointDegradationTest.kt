@@ -20,4 +20,12 @@ class PointDegradationTest {
         assertEquals("shes    ", paper.getText())
     }
 
+    @Test
+    fun spacesDoNotEffectDurability() {
+        val pencil = Pencil(4)
+        val paper = Paper()
+        pencil.write("she sells", paper)
+        assertEquals("she s    ", paper.getText())
+    }
+
 }
