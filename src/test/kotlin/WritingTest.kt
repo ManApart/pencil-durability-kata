@@ -19,4 +19,13 @@ class WritingTest {
         assertEquals("She surely sells those surely sea shells", paper.getText())
     }
 
+    @Test
+    fun appendText() {
+        val pencil = Pencil()
+        val paper = Paper()
+        pencil.write("She sells sea shells", paper)
+        pencil.write(" by the sea shore", paper)
+        assertEquals("She sells sea shells by the sea shore", paper.getText())
+    }
+
 }

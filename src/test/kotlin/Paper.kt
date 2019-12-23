@@ -1,7 +1,7 @@
 class Paper {
     private var text = ""
     fun write(text: String) {
-        this.text = text
+        this.text += text
     }
 
     fun getText(): String {
