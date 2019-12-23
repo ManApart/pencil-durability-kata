@@ -36,4 +36,12 @@ class PointDegradationTest {
         assertEquals("she\n s    ", paper.getText())
     }
 
+    @Test
+    fun capitalLettersCost2Durability() {
+        val pencil = Pencil(4)
+        val paper = Paper()
+        pencil.write("Text", paper)
+        assertEquals("Tex ", paper.getText())
+    }
+
 }

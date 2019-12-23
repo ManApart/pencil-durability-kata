@@ -14,9 +14,10 @@ class Pencil(private var durability: Int) {
     }
 
     private fun getCost(character: Char): Int {
-        return when (character) {
-            ' ' -> 0
-            '\n' -> 0
+        return when {
+            character == ' ' -> 0
+            character == '\n' -> 0
+            character.isUpperCase() -> 2
             else -> 1
         }
     }
